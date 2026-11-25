@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColourMix - Guess & Create</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="logo">🌈 ColourMix</div>
+       <div class="top-actions">
+
+    <span id="bestScore">🏆 Best: 0</span>
+
+    <button id="eyeComfortBtn" class="eye-toggle">
+        🌙 Eye Comfort
+    </button>
+
+    <button id="soundBtn">🔊</button>
+
+</div>
+    </header>
+
+    <main>
+
+        <!-- WELCOME SCREEN -->
+        <section id="welcomeScreen" class="screen active">
+            <div class="welcome-content">
+                <div class="rainbow">🌈</div>
+
+                <h1>ColourMix</h1>
+                <h2>Guess & Create!</h2>
+
+                <p>
+                    Paint two hands, mix two colours
+                    and discover a magical new colour!
+                </p>
+
+                <div class="welcome-art">
+                    🎨 🖐️ ✨ 🖐️
+                </div>
+
+                <button class="primary-btn" id="startBtn">
+                    START GAME 🚀
+                </button>
+
+                <button class="secondary-btn" id="howBtn">
+                    HOW TO PLAY ❓
+                </button>
+            </div>
+        </section>
+
+
+        <!-- HOW TO PLAY -->
+        <section id="howScreen" class="screen">
+            <div class="game-card">
+                <h1>How to Play 🎮</h1>
+
+                <div class="instruction">
+                    <span>1️⃣</span>
+                    <p>Choose your favourite character.</p>
+                </div>
+
+                <div class="instruction">
+                    <span>2️⃣</span>
+                    <p>Select two different colours for the hands.</p>
+                </div>
+
+                <div class="instruction">
+                    <span>3️⃣</span>
+                    <p>Watch the mixing countdown.</p>
+                </div>
+
+                <div class="instruction">
+                    <span>4️⃣</span>
+                    <p>Guess the resulting colour from four options.</p>
+                </div>
+
+                <div class="instruction">
+                    <span>5️⃣</span>
+                    <p>Earn points and unlock new levels!</p>
+                </div>
+
+                <button class="primary-btn" id="howBackBtn">
+                    LET'S PLAY!
+                </button>
+            </div>
+        </section>
+
+
+        <!-- CHARACTER SELECTION -->
+        <section id="characterScreen" class="screen">
+
+            <div class="game-card">
+                <h1>Choose Your Character</h1>
+                <p>Who is ready for a colour adventure?</p>
+
+                <div class="character-options">
+
+                    <button class="character-card" data-character="Boy">
+                        <span>👦</span>
+                        <h2>Boy</h2>
+                    </button>
+
+                    <button class="character-card" data-character="Girl">
+                        <span>👧</span>
+                        <h2>Girl</h2>
+                    </button>
+
+                </div>
+
+                <p id="characterMessage">
+                    Select your character!
+                </p>
+
+                <button class="primary-btn" id="characterContinue" disabled>
+                    CONTINUE →
+                </button>
+
+                <button class="text-btn" id="characterBack">
+                    ← Back
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- PAINTING SCREEN -->
+        <section id="paintScreen" class="screen">
+
+            <div class="game-card">
+
+                <div class="game-heading">
+                    <h1>Let's Paint! 🎨</h1>
+                    <p>Choose a colour for each hand.</p>
+                </div>
+
+                <div class="game-info">
+                    <span id="levelText">Level 1</span>
+                    <span id="scoreText">⭐ Score: 0</span>
+                </div>
+
+                <div class="hands-container">
+
+                    <div class="hand-box">
+                        <h3>LEFT HAND</h3>
+
+                        <svg class="hand-svg" viewBox="0 0 160 180">
+                            <path id="leftHand" class="hand-shape"
+                            d="M48 170
+                            L48 120
+                            C35 115 25 102 20 87
+                            L8 53
+                            C5 43 10 35 19 34
+                            C27 33 32 40 35 48
+                            L45 70
+                            L38 25
+                            C36 15 43 8 52 9
+                            C61 10 64 17 65 27
+                            L71 66
+                            L72 17
+                            C72 7 80 3 88 5
+                            C97 7 98 14 98 24
+                            L98 66
+                            L108 29
+                            C111 19 120 17 127 21
+                            C135 26 133 35 130 44
+                            L115 91
+                            C128 79 135 78 141 85
+                            C148 93 143 102 137 109
+                            L111 143
+                            L111 170 Z"/>
+                        </svg>
+
+                        <p id="leftColorName">Not selected</p>
+                    </div>
+
+
+                    <div class="hand-box">
+                        <h3>RIGHT HAND</h3>
+
+                        <svg class="hand-svg" viewBox="0 0 160 180">
+                            <path id="rightHand" class="hand-shape"
+                            d="M48 170
+                            L48 120
+                            C35 115 25 102 20 87
+                            L8 53
+                            C5 43 10 35 19 34
+                            C27 33 32 40 35 48
+                            L45 70
+                            L38 25
+                            C36 15 43 8 52 9
+                            C61 10 64 17 65 27
+                            L71 66
+                            L72 17
+                            C72 7 80 3 88 5
+                            C97 7 98 14 98 24
+                            L98 66
+                            L108 29
+                            C111 19 120 17 127 21
+                            C135 26 133 35 130 44
+                            L115 91
+                            C128 79 135 78 141 85
+                            C148 93 143 102 137 109
+                            L111 143
+                            L111 170 Z"/>
+                        </svg>
+
+                        <p id="rightColorName">Not selected</p>
+                    </div>
+
+                </div>
+
+
+                <h3>Choose Your Colours</h3>
+
+                <div class="palette" id="palette"></div>
+
+                <p id="paintMessage">
+                    First, select the LEFT hand colour.
+                </p>
+
+                <button class="primary-btn" id="mixBtn" disabled>
+                    MIX COLOURS ✨
+                </button>
+
+                <button class="text-btn" id="paintBack">
+                    ← Back
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- COUNTDOWN SCREEN -->
+        <section id="countdownScreen" class="screen">
+
+            <div class="game-card countdown-card">
+
+                <h1>What Colour Will We Get?</h1>
+
+                <div class="equation" id="equation"></div>
+
+                <div id="countdownNumber">3</div>
+
+                <p>Get ready to guess!</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- GUESS SCREEN -->
+        <section id="guessScreen" class="screen">
+
+            <div class="game-card">
+
+                <h1>Guess the New Colour! 🤔</h1>
+
+                <p>Which colour will we get by mixing?</p>
+
+                <div class="guess-options" id="guessOptions"></div>
+
+                <p id="guessMessage">
+                    Choose the correct answer!
+                </p>
+
+                <p id="attemptText">Attempts: 0 / 3</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT SCREEN -->
+        <section id="resultScreen" class="screen">
+
+            <div class="game-card result-card">
+
+                <div id="resultEmoji">🎉</div>
+
+                <h1 id="resultTitle">Amazing!</h1>
+
+                <div id="resultColour"></div>
+
+                <h2 id="resultName">Purple</h2>
+
+                <p id="resultDescription"></p>
+
+                <h2 id="pointsEarned">+10 Points ⭐</h2>
+
+                <button class="primary-btn" id="nextBtn">
+                    NEXT LEVEL →
+                </button>
+
+                <button class="text-btn" id="homeBtn">
+                    HOME
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #fff0f6, #e5f7ff, #fff8dc);
+    min-height: 100vh;
+    color: #333;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+.topbar {
+    height: 75px;
+    padding: 0 7%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px #00000010;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: #8845c7;
+}
+
+.top-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-weight: 800;
+}
+
+#soundBtn {
+    background: #f0e4ff;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+main {
+    padding: 25px 15px;
+}
+
+.screen {
+    display: none;
+    max-width: 850px;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.welcome-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 35px 20px;
+}
+
+.rainbow {
+    font-size: 75px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.welcome-content h1 {
+    font-size: 65px;
+    font-weight: 900;
+    color: #8845c7;
+}
+
+.welcome-content h2 {
+    font-size: 30px;
+    color: #ff7c9c;
+}
+
+.welcome-content p {
+    font-size: 18px;
+    margin: 20px 0;
+    line-height: 1.7;
+}
+
+.welcome-art {
+    font-size: 55px;
+    margin: 25px 0;
+    animation: float 3s infinite ease-in-out;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    padding: 15px 25px;
+    margin: 12px auto;
+    border-radius: 35px;
+    font-size: 17px;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    color: white;
+    background: linear-gradient(90deg, #a54de5, #ed68a4);
+    box-shadow: 0 6px 15px #a54de555;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary-btn:disabled {
+    background: #bdbdbd;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.secondary-btn {
+    color: #8845c7;
+    background: white;
+    border: 2px solid #8845c7;
+}
+
+.game-card {
+    background: white;
+    width: 100%;
+    padding: 35px 25px;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 10px 35px #00000012;
+}
+
+.game-card h1 {
+    color: #8845c7;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.game-card > p {
+    margin: 12px 0;
+    color: #666;
+}
+
+.character-options {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 35px 0;
+}
+
+.character-card {
+    width: 180px;
+    padding: 25px;
+    background: #f7f0ff;
+    border: 3px solid transparent;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.character-card span {
+    font-size: 75px;
+}
+
+.character-card h2 {
+    color: #8845c7;
+    margin-top: 10px;
+}
+
+.character-card.selected {
+    border-color: #a54de5;
+    background: #f1dcff;
+    transform: scale(1.05);
+}
+
+.text-btn {
+    background: transparent;
+    color: #8845c7;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 12px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-weight: 900;
+    color: #8845c7;
+}
+
+.hands-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.hand-box {
+    width: 45%;
+    background: #f8f4ff;
+    padding: 15px 5px;
+    border-radius: 20px;
+}
+
+.hand-box h3 {
+    font-size: 14px;
+    color: #777;
+}
+
+.hand-svg {
+    width: 100%;
+    max-width: 150px;
+    height: 170px;
+    margin: 10px 0;
+}
+
+.hand-shape {
+    fill: #f4c9a8;
+    stroke: #8b6551;
+    stroke-width: 3;
+    stroke-linejoin: round;
+    transition: fill 0.4s;
+}
+
+.hand-box p {
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.palette {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.color-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 4px solid white;
+    outline: 2px solid #ddd;
+    transition: 0.2s;
+    position: relative;
+}
+
+.color-btn.selected {
+    outline: 4px solid #8845c7;
+    transform: scale(1.15);
+}
+
+#paintMessage {
+    font-weight: 800;
+    color: #8845c7;
+    margin: 20px;
+}
+
+.equation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.equation span {
+    display: inline-block;
+}
+
+.equation .equation-color {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#countdownNumber {
+    font-size: 100px;
+    font-weight: 900;
+    color: #ed68a4;
+    animation: pulse 1s infinite;
+}
+
+.guess-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.guess-option {
+    min-height: 115px;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 3px 10px #00000018;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    text-shadow: 1px 2px 4px #0008;
+    transition: 0.2s;
+}
+
+.guess-option:hover {
+    transform: scale(1.04);
+}
+
+.guess-option:disabled {
+    cursor: default;
+    opacity: 0.65;
+}
+
+.result-card {
+    max-width: 550px;
+}
+
+#resultEmoji {
+    font-size: 75px;
+    margin-bottom: 15px;
+}
+
+#resultColour {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 25px auto;
+    border: 7px solid white;
+    box-shadow: 0 4px 20px #00000020;
+}
+
+#resultName {
+    font-size: 32px;
+    color: #8845c7;
+}
+
+#resultDescription {
+    margin: 15px;
+    font-size: 17px;
+}
+
+#pointsEarned {
+    color: #ed9b28;
+    margin: 20px;
+}
+
+.instruction {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 12px;
+    background: #f8f4ff;
+    border-radius: 15px;
+}
+
+.instruction span {
+    font-size: 28px;
+}
+
+.countdown-card {
+    padding: 50px 20px;
+}
+
+#toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    display: none;
+    z-index: 100;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@media(max-width: 600px) {
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .welcome-content h1 {
+        font-size: 45px;
+    }
+
+    .game-card {
+        padding: 25px 15px;
+    }
+
+    .game-card h1 {
+        font-size: 24px;
+    }
+
+    .hands-container {
+        gap: 10px;
+    }
+
+    .hand-svg {
+        height: 135px;
+    }
+
+    .character-options {
+        gap: 10px;
+    }
+
+    .character-card {
+        width: 46%;
+        padding: 15px 5px;
+    }
+
+    .character-card span {
+        font-size: 55px;
+    }
+
+    .color-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .guess-option {
+        min-height: 90px;
+        font-size: 15px;
+    }
+}
+/* ACTIVE HAND SELECTION */
+
+.hand-box {
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.hand-box.active-hand {
+    border: 3px solid #a54de5;
+    background: #f1e4ff;
+    transform: scale(1.03);
+}
+
+.hand-box:hover {
+    border-color: #d7b4f5;
+}
+/* COLOUR MIXING ANIMATIONS */
+
+.hand-box.mixing {
+    animation: handBounce 0.7s infinite alternate;
+    box-shadow: 0 0 25px #c77dff;
+    border-color: #a54de5;
+}
+
+.hand-box.mixing .hand-svg {
+    animation: handGlow 0.8s infinite alternate;
+}
+
+@keyframes handBounce {
+    from {
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        transform: translateY(-10px) scale(1.04);
+    }
+}
+
+@keyframes handGlow {
+    from {
+        filter: drop-shadow(0 0 2px #ff69b4);
+    }
+
+    to {
+        filter: drop-shadow(0 0 15px #a54de5);
+    }
+}
+
+/* COUNTDOWN ANIMATION */
+
+#countdownNumber {
+    animation: countdownPop 0.8s infinite;
+}
+
+@keyframes countdownPop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* MIXING EQUATION */
+
+.equation {
+    animation: equationGlow 1s infinite alternate;
+}
+
+@keyframes equationGlow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.06);
+    }
+}
+/* ===== COLOUR MIXING ANIMATION ===== */
+
+.hand-box.mixing {
+    animation: handMove 0.6s ease-in-out infinite alternate;
+    border: 3px solid #d18aff;
+    box-shadow: 0 0 18px rgba(180, 80, 255, 0.45);
+}
+
+.hand-box.mixing .hand-svg {
+    animation: handGlow 0.6s ease-in-out infinite alternate;
+}
+
+.hand-box:nth-child(1).mixing {
+    animation-name: leftHandMove;
+}
+
+.hand-box:nth-child(2).mixing {
+    animation-name: rightHandMove;
+}
+
+@keyframes leftHandMove {
+    from {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateX(15px) translateY(-12px) rotate(8deg);
+    }
+}
+
+@keyframes rightHandMove {
+    from {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateX(-15px) translateY(-12px) rotate(-8deg);
+    }
+}
+
+@keyframes handGlow {
+    from {
+        filter: drop-shadow(0 0 3px #ff69b4);
+    }
+    to {
+        filter: drop-shadow(0 0 16px #a54de5);
+    }
+}
+
+@keyframes handMove {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-12px);
+    }
+}
+
+/* Mixing countdown */
+
+#countdownNumber {
+    animation: countdownPop 0.7s ease-in-out infinite;
+}
+
+@keyframes countdownPop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+/* ===== EYE COMFORT MODE ===== */
+
+.eye-toggle {
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: #fff0cf;
+    color: #795c37;
+    font-weight: 800;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.eye-toggle:hover {
+    transform: scale(1.04);
+}
+
+/* Softer screen colours */
+
+body.eye-comfort {
+    background: #e9e2d4;
+    color: #45413a;
+}
+
+.eye-comfort .topbar {
+    background: #f1eadc;
+}
+
+.eye-comfort .game-card {
+    background: #f5efe3;
+}
+
+.eye-comfort .hand-box {
+    background: #e9e1d5;
+}
+
+.eye-comfort .character-card {
+    background: #e9e1d5;
+}
+
+.eye-comfort .instruction {
+    background: #e9e1d5;
+}
+
+.eye-comfort .primary-btn {
+    background: linear-gradient(90deg, #9274b5, #c17c9d);
+    box-shadow: none;
+}
+
+.eye-comfort .secondary-btn {
+    background: #f5efe3;
+}
+
+.eye-comfort .eye-toggle {
+    background: #d9c8a7;
+}
+
+/* Smooth theme transition */
+
+body,
+.topbar,
+.game-card,
+.hand-box {
+    transition: background 0.4s ease, color 0.4s ease;
+}
+/* CELEBRATION CONFETTI */
+
+#confettiContainer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.confetti {
+    position: absolute;
+    top: -20px;
+    width: 12px;
+    height: 18px;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.result-card.celebrating {
+    animation: celebrationPop 0.6s ease-in-out;
+}
+
+@keyframes celebrationPop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
